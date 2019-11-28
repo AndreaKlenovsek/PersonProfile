@@ -1,0 +1,296 @@
+
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+$garamond: 'EB Garamond', serif;;
+$lightBlue: #bdc3c7;
+$darkBlue: #2c3e50;
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body {
+height: 100vh;
+width: 100vw;
+background: linear-gradient($lightBlue, $darkBlue);
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: $garamond;
+line-height: 1.6;
+}
+
+img {
+max-width: 100%;
+}
+
+.container {
+width: 700px;
+height: 500px;
+background: white;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 5px 5px 10px rgba(0,0,0, .6);
+position: relative;
+border-radius: 10px;
+}
+
+.photography {
+background: $darkBlue;
+position: absolute;
+right: 1rem;
+top: 0;
+height: 40px;
+width: 40px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+& i {
+color: white;
+}
+}
+
+.left {
+background: $lightBlue;
+height: 100%;
+width: 200px;
+padding: .5em;
+
+.images {
+position: absolute;
+top: 50%;
+left: 43px;
+transform: translateY(-50%);
+
+& img {
+height: 280px;
+width: 210px;
+display: block;
+}
+
+.img-slider {
+display: flex;
+background: white;
+width: 100%;
+color: black;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+
+.imgNum {
+display: flex;
+align-items: center;
+
+
+span:first-child {
+color: $lightBlue; 
+padding-left: .5em;
+}
+}
+}
+
+.buttons {
+display: flex;
+}
+
+.btnPrev, .btnNext {
+background: $darkBlue;
+border: none;
+height: 100%;
+padding: .8em;
+cursor: pointer;
+display: inline-block;
+
+& i {
+color: white;
+}
+}
+
+
+.slide {
+height: 2px;
+width: 80px;
+background: #333;
+display: inline-block;
+border-radius: 2px;
+position: relative;
+
+&__color {
+top: 0;
+height: 100%;
+position: absolute;
+background: $lightBlue;
+}
+.slide__color.leftSide {
+left: 0;
+width: 50%;
+}
+
+.slide__color.rightSide {
+right: 0;
+width: 50%;
+}
+}
+}
+}
+
+.right {
+height: 100%;
+padding: 4em 2em;
+margin-left: 3em;
+flex: 2;
+display: flex;
+flex-direction: column;
+
+&__title {
+margin-bottom: .5em;
+color: $darkBlue;
+font-size: 1.8rem;
+letter-spacing: 2px;
+}
+
+h3 {
+font-size: .8rem;
+display: inline-block;
+
+.occupation {
+display: inline-block;
+font-size: .8rem;
+color: #8b8b8b;
+padding-left: .5em;
+text-decoration: none;
+transition: transform 300ms ease-in-out;
+
+&:hover {
+transform: scale(1.1);
+}
+}
+}
+
+&__text {
+color: #333;
+margin-bottom: 1em;
+}
+
+.more__btn {
+text-decoration: none;
+color: black;
+font-size: .9rem;
+font-weight: bold;
+margin-top: 1em;
+overflow-y: hidden;
+display: block;
+
+& i{
+padding-left: .3em;
+}
+
+.skill__list {
+transform: translateY(-200px);
+transition:  transform 500ms ease-in-out;
+font-weight: normal;
+margin-bottom:1em;
+color: #333;
+list-style: none;
+padding-left: 1.6em;
+
+&.show {
+transform: translateY(0);
+}
+
+& li:before {
+content: "• ";
+color: $darkBlue; 
+padding-right: .3em;
+}
+}
+}
+
+form {
+width: 70%;
+margin-top: auto;
+display: flex;
+box-shadow: 2px 2px 6px rgba(0,0,0, .6);
+
+& input {
+padding: 0.5em;
+width: 100%;
+}
+}
+
+.submitBtn {
+text-decoration: none;
+background: $darkBlue;
+padding: .75em 1.25em;
+border: none;
+outline: none;
+cursor: pointer;
+font-size: .8rem;
+display: inline-block;
+color: white;
+
+&:disabled {
+background: rgba($darkBlue, .5);
+}
+}
+
+.emailIcon {
+color: $lightBlue;
+font-size: 3rem;
+transform: rotateX(-20deg);
+position: absolute;
+right: 1.5em;
+bottom: .8em;
+animation: rotate 1000ms alternate infinite;
+
+}
+}
+
+// Animation 
+@keyframes rotate {
+100% {
+transform: rotate(20deg);
+}  
+}
+
+
+
+// Media Queries
+@media(max-width:676px) {
+.left {
+display: none;
+}
+
+.images {
+display: none;
+}
+
+.right .more__btn {
+display: none;
+}
+
+.right form {
+width: 100%;
+}
+
+.right .emailIcon {
+left: 0.4em;
+bottom: 1em;
+animation: rotateSmall 1000ms alternate infinite;
+transform: rotate(-5deg);
+transform-origin: left;
+}
+
+@keyframes rotateSmall {
+100% {
+transform: rotate(5deg);
+}  
+}
+}
